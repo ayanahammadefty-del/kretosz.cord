@@ -1,1 +1,0 @@
-# kretosz.cord
