@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>KRETOSCORD XE PANEL</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">KRETOSCORD <span class="accent">XE</span></div>
+    <div id="engine-status" class="status-tag status-offline">STANDBY</div>
+  </header>
+
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="gains">GAINS</button>
+    <button class="tab-btn" data-tab="dsp">DSP CONFIG</button>
+    <button class="tab-btn" data-tab="system">SYSTEM</button>
+  </div>
+
+  <main class="panel-content">
+    <section id="tab-gains" class="tab-view active-view">
+      <div class="metric-container">
+        <label>LIVE VOICE TELEMETRY METER</label>
+        <div class="meter-bar"><div id="meter-rms" class="fill" style="width: 0%;"></div></div>
+      </div>
+
+      <div class="metric-container">
+        <label>COMPRESSOR GAIN REDUCTION (dB)</label>
+        <div class="meter-bar reduction"><div id="meter-gr" class="fill" style="width: 0%;"></div></div>
+      </div>
+
+      <div class="control-group">
+        <div class="control-header">
+          <label>Noise Gate Threshold</label>
+          <span id="val-gate">-45 dB</span>
+        </div>
+        <input type="range" id="sl-gate" min="-70" max="-20" step="1" value="-45">
+      </div>
+    </section>
+
+    <section id="tab-dsp" class="tab-view">
+      <div class="control-group">
+        <div class="control-header">
+          <label>Voice Eq Low Boost</label>
+          <span id="val-eql">0 dB</span>
+        </div>
+        <input type="range" id="sl-eql" min="-10" max="15" step="1" value="0">
+      </div>
+
+      <div class="control-group">
+        <div class="control-header">
+          <label>Voice Eq High Intelligibility</label>
+          <span id="val-eqh">0 dB</span>
+        </div>
+        <input type="range" id="sl-eqh" min="-10" max="15" step="1" value="0">
+      </div>
+
+      <div class="control-group">
+        <div class="control-header">
+          <label>Compressor Threshold</label>
+          <span id="val-comp">-24 dB</span>
+        </div>
+        <input type="range" id="sl-comp" min="-50" max="0" step="1" value="-24">
+      </div>
+    </section>
+
+    <section id="tab-system" class="tab-view">
+      <div class="telemetry-grid">
+        <div class="stat-card"><h5>LATENCY</h5><p id="txt-latency">-- ms</p></div>
+        <div class="stat-card"><h5>CTX STATE</h5><p id="txt-state">UNKN</p></div>
+      </div>
+
+      <div class="sys-actions">
+        <button id="btn-save" class="btn-primary">SAVE PRESET</button>
+        <button id="btn-reset" class="btn-secondary">RESET TO DEFAULT</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+  </html>
