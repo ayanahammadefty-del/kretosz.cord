@@ -1,0 +1,177 @@
+:root {
+  --bg-primary: #0b0e14;
+  --bg-surface: #141923;
+  --bg-control: #1d2432;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --green: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  width: 100vw;
+  max-width: 380px;
+  height: 480px;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: var(--bg-surface);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.brand .accent { color: var(--accent); }
+
+.status-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.status-online { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+.status-offline { background: rgba(156, 163, 175, 0.15); color: var(--text-muted); }
+
+.tabs-nav {
+  display: flex;
+  background: var(--bg-surface);
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 12px 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.panel-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.tab-view { display: none; }
+.tab-view.active-view { display: block; }
+
+.metric-container {
+  margin-bottom: 16px;
+}
+
+.metric-container label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.meter-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-control);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meter-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  transition: width 0.1s linear;
+}
+
+.meter-bar.reduction .fill {
+  background: #ef4444;
+}
+
+.control-group {
+  background: var(--bg-surface);
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.control-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  background: var(--bg-control);
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.telemetry-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: var(--bg-surface);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card h5 { font-size: 0.6rem; color: var(--text-muted); margin-bottom: 4px; }
+.stat-card p { font-size: 1.1rem; font-weight: 700; }
+
+.sys-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button.btn-primary, button.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+}
+button.btn-primary { background: var(--accent); color: white; }
+button.btn-secondary { background: var(--bg-control); color: var(--text-main); }
